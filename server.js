@@ -23,6 +23,7 @@ app.get('/', function(req, res) {
 	} else {
 		host = "http://simple-markdown-chat.herokuapp.com/";
 	}
+	console.log(app.settings.env);
 	res.render('index', {host:host});
 });
 
