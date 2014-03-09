@@ -1,0 +1,56 @@
+.other {
+	text-align: right;
+	padding: 1px;
+	margin-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.self {
+	min-height: 0px;
+	padding: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: 5px;
+}
+.self p {
+	margin-bottom: 0px;
+}
+
+.other pre {
+	text-align: left;
+}
+
+.chat-display {
+	height: 500px;
+	overflow-y: scroll;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 20px;
+  background-color: black;
+  text-align: center;
+  color: white;
+}
+
+#footer a {
+ 	color: #2a9fd6;
+}
+#footer a:hover {
+	color: #2386b4;
+}
+
