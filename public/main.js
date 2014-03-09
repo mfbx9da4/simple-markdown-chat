@@ -38,6 +38,13 @@ function sendMessage() {
     });
 }
 
+function previewMarkdown() {
+    messageBox.addEventListener('input', function (e) {
+        var html = converter.makeHtml(e.target.value);
+        markdownPreviewBox.innerHTML = html;
+    }); 
+}
+
 function addStylesToChatMessage(div, name) {
     if (nameBox.value !== name) {
         div.classList.add('alert');
@@ -53,11 +60,4 @@ function addStylesToChatMessage(div, name) {
 
 function scrollToBottom() {
     chatDisplay.scrollTop = chatDisplay.scrollHeight;
-}
-
-function previewMarkdown() {
-    messageBox.addEventListener('input', function (e) {
-        var html = converter.makeHtml(e.target.value);
-        markdownPreviewBox.innerHTML = html;
-    }); 
 }
