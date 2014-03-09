@@ -6,7 +6,7 @@ var jade = require('jade');
 var io = require('socket.io').listen(server);
 
 
-app.set('port', 3000);
+app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.set("view options", {
