@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        title Chat
+        link(rel="stylesheet" href="public/css/bootstrap.css")
+        link(rel="stylesheet" href="public/css/font-awesome.min.css")
+    body
+        div.container
+            header
+                h1 Simple markdown chat
+            div.col-md-6()
+                div.form-group
+                    label Name
+                    input.form-control(type='text' value="")#name 
+                div.form-group
+                    label Message
+                    textarea.form-control(type='text' rows="8")#message 
+
+
+                button.btn.btn-default#send Send
+            div.col-md-6()
+                div.chat-display
+        script(src="public/libs/jquery-2.0.3.min.js")
+        script(src="public/libs/socket.io.min.js")
+        script(src="public/libs/Markdown.Converter.js")
+        script(src="public/main.js")
