@@ -16,15 +16,18 @@ app.configure(function() {
 	app.use(express.static(__dirname));
 });
 
+app.configure('development', function(){
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+  app.set('host', "http://localhost");
+});
+
+app.configure('production', function(){
+  app.use(express.errorHandler()); 
+  app.set('host', "http://simple-markdown-chat.herokuapp.com/");
+});
+
 app.get('/', function(req, res) {
-	var host;
-	if (app.settings.env === "development") {
-		host = "http://localhost";
-	} else {
-		host = "http://simple-markdown-chat.herokuapp.com/";
-	}
-	console.log(app.settings.env);
-	res.render('index', {host:host});
+	res.render('index', {host: app.get('host')});
 });
 
 server.listen(app.get('port'), function() {
