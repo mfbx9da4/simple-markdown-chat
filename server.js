@@ -17,7 +17,13 @@ app.configure(function() {
 });
 
 app.get('/', function(req, res) {
-	res.render('index');
+	var host;
+	if (app.settings.env === "development") {
+		host = "http://localhost";
+	} else {
+		host = "http://simple-markdown-chat.herokuapp.com/";
+	}
+	res.render('index', {host:host});
 });
 
 server.listen(app.get('port'), function() {

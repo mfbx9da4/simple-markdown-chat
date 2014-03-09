@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost');
+var socket = io.connect(host);
 var converter = new Markdown.Converter();
 
 socket.on('message', function(data) {
