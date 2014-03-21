@@ -5,6 +5,7 @@ var messageBox = document.querySelector('#message');
 var nameBox = document.querySelector('#name');
 var markdownPreviewBox = document.querySelector('#markdownPreview');
 var sendButton = document.querySelector('#send');
+var config = {sendKey: 13};
 
 main();
 
@@ -27,8 +28,12 @@ function listenMessage() {
 }
 
 function listenSendMessage() {
+    messageBox.addEventListener('keyup', function (e) {
+        if (e.keyCode === config.sendKey && e.shiftKey) {
+            sendMessage();
+        }
+    });
     sendButton.addEventListener('click', sendMessage);
-    messageBox.value = '';
 }
 
 function sendMessage() {
@@ -36,6 +41,8 @@ function sendMessage() {
         message: messageBox.value,
         name: nameBox.value
     });
+    messageBox.value = '';
+    markdownPreviewBox.innerHTML = '';
 }
 
 function previewMarkdown() {
